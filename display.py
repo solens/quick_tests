@@ -29,27 +29,6 @@ def demo(n, block_orientation, rotate,x):
     with canvas(device) as draw:
         text(draw,(0,0),chr(x),fill = "white")
 
-    print("First letters")
-    time.sleep(1)
-    for x in letters_as_num:
-        with canvas(device) as draw:
-            text(draw,(0, 0),chr(x),fill = "white")
-            time.sleep(1)
-
-    print("Symbols")
-    time.sleep(1)
-    for x in sym_as_num:
-        with canvas(device) as draw:
-            text(draw,(0, 0),chr(x),fill = "white")
-            time.sleep(1)
-
-    print("Vent")
-    time.sleep(1)
-    for x in [120,43,120,43]:
-        with canvas(device) as draw:
-            text(draw,(1, 1),chr(x),fill = "white")
-            time.sleep(1)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='matrix_demo arguments',
