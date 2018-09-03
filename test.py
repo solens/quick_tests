@@ -21,9 +21,8 @@ def demo(n, block_orientation, rotate):
 
     time.sleep(1)
     for x in letters:
-        with canvas(device) as draw:
-            text(draw, (0, 0), chr(x), fill="white")
-            time.sleep(0.1)
+        show_message(device,x,fill = "whiite",font=proportional(LCD_FONT))
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
