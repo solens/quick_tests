@@ -52,7 +52,7 @@ def demo(n, block_orientation, rotate,x):
 
 
 if __name__ == "__main__":
-    symbol = sys.args[1]
+    symbol = int(sys.argv[1])
     parser = argparse.ArgumentParser(description='matrix_demo arguments',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
