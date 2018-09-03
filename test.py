@@ -27,7 +27,7 @@ def demo(n, block_orientation, rotate):
     letters_as_num = [65,68,76,86]
 
     time.sleep(1)
-    for x in letters_as_num:
+    for x in range(7):
         with canvas(device) as draw:
             text(draw,(0, 0),chr(x),fill = "white")
             time.sleep(1)
