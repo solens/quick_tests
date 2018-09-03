@@ -21,7 +21,7 @@ def demo(n, block_orientation, rotate):
 
     time.sleep(1)
     for x in letters:
-        show_message(device,x,fill = "whiite",font=proportional(LCD_FONT))
+        show_message(device,x,fill = "whiite",font=proportional(CP437_FONT))
         time.sleep(0.1)
 
 
