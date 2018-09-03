@@ -38,7 +38,7 @@ def demo(n, block_orientation, rotate):
 
     print("Symbols")
     time.sleep(1)
-    for x in letters_as_num:
+    for x in sym_as_num:
         with canvas(device) as draw:
             text(draw,(0, 0),chr(x),fill = "white")
             time.sleep(1)
@@ -47,7 +47,7 @@ def demo(n, block_orientation, rotate):
     time.sleep(1)
     for x in [120,43,120,43]:
         with canvas(device) as draw:
-            text(draw,(0, 0),chr(x),fill = "white")
+            text(draw,(1, 1),chr(x),fill = "white")
             time.sleep(1)
 
 
