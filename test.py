@@ -25,7 +25,7 @@ def demo(n, block_orientation, rotate):
     # Options
     letters = ["a","d","l","v"]
     letters_as_num = [65,68,76,86]
-    sym_as_num[236,8,15,42]
+    sym_as_num = [236,8,15,42]
 
     device.contrast(16)
 
