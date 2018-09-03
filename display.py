@@ -26,9 +26,10 @@ def demo(n, block_orientation, rotate,x):
 
     device.contrast(16)
 
+    time.sleep(1)
     with canvas(device) as draw:
         text(draw,(0,0),chr(x),fill = "white")
-        time.sleep(3)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
