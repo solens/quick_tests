@@ -26,6 +26,8 @@ def demo(n, block_orientation, rotate):
     letters = ["a","d","l","v"]
     letters_as_num = [65,68,76,86]
 
+    device.contrast(16)
+
     time.sleep(1)
     for x in range(7):
         with canvas(device) as draw:
