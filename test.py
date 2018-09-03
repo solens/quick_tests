@@ -25,11 +25,27 @@ def demo(n, block_orientation, rotate):
     # Options
     letters = ["a","d","l","v"]
     letters_as_num = [65,68,76,86]
+    sym_as_num[236,8,15,42]
 
     device.contrast(16)
 
+    print("First letters")
     time.sleep(1)
-    for x in range(7):
+    for x in letters_as_num:
+        with canvas(device) as draw:
+            text(draw,(0, 0),chr(x),fill = "white")
+            time.sleep(1)
+
+    print("Symbols")
+    time.sleep(1)
+    for x in letters_as_num:
+        with canvas(device) as draw:
+            text(draw,(0, 0),chr(x),fill = "white")
+            time.sleep(1)
+
+    print("Vent")
+    time.sleep(1)
+    for x in [120,43,120,43]:
         with canvas(device) as draw:
             text(draw,(0, 0),chr(x),fill = "white")
             time.sleep(1)
