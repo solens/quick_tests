@@ -27,7 +27,7 @@ def demo(n, block_orientation, rotate):
 
     time.sleep(1)
     for x in letters:
-        text(canvas(device),x,fill = "white",font=proportional(CP437_FONT))
+        text(canvas(device),x,fill = "white")
         time.sleep(0.1)
 
 
