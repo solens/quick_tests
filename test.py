@@ -22,7 +22,7 @@ def demo(n, block_orientation, rotate):
     time.sleep(1)
     for x in letters:
         with canvas(device) as draw:
-            text(draw, (0, 0), x, fill="white",font = LCD_FONT)
+            text(draw, (0, 0), x, fill="white")
             time.sleep(0.1)
 
 
