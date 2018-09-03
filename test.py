@@ -24,11 +24,12 @@ def demo(n, block_orientation, rotate):
 
     # Options
     letters = ["a","d","l","v"]
+    letters_as_num = [65,68,76,86]
 
     time.sleep(1)
-    for x in letters:
+    for x in letters_as_num:
         text(canvas(device),(0, 0),chr(x),fill = "white")
-        time.sleep(0.1)
+        time.sleep(1)
 
 
 if __name__ == "__main__":
