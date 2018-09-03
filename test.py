@@ -28,8 +28,9 @@ def demo(n, block_orientation, rotate):
 
     time.sleep(1)
     for x in letters_as_num:
-        text(canvas(device),(0, 0),chr(x),fill = "white")
-        time.sleep(1)
+        with canvas(device) as draw:
+            text(draw,(0, 0),chr(x),fill = "white")
+            time.sleep(1)
 
 
 if __name__ == "__main__":
