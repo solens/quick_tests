@@ -20,9 +20,11 @@ def demo(n, block_orientation, rotate):
     letters = ["a","d","l","v"]
 
     time.sleep(1)
-    for x in letters:
-        show_message(device,x,fill = "whiite",font=proportional(CP437_FONT))
-        time.sleep(0.1)
+    #for x in letters:
+    #    show_message(device,x,fill = "white",font=proportional(CP437_FONT))
+    #    time.sleep(0.1)
+    x = "xoxox"
+    show_message(device,x,fill = "white",font=proportional(CP437_FONT))
 
 
 if __name__ == "__main__":
