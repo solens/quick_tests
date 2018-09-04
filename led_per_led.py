@@ -28,14 +28,27 @@ x_drawing = [[1,0,0,0,0,0,0,1],
      [1,0,0,0,0,0,0,1]]
 
 
-vent1 = [[1,1,1,0,0,0,0,0],
+vent1 = [
+     [1,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,0,1,1,0,0,0,0],
+     [0,0,0,1,1,0,0,0],
+     [0,0,0,1,1,1,1,1],
+     [0,0,1,1,0,0,1,1],
+     [1,1,1,0,0,0,0,1],
+     [1,1,0,0,0,0,0,0]
+     ]
+
+vent2 = [
      [0,1,1,1,0,0,0,0],
      [0,0,1,1,0,0,0,0],
-     [0,0,0,1,0,0,0,0],
+     [0,0,0,1,1,0,0,0],
+     [0,0,0,0,1,0,0,0],
      [0,0,0,1,1,1,0,0],
-     [0,1,1,0,0,1,1,1],
+     [1,1,1,1,0,1,1,0],
      [1,1,0,0,0,0,1,1],
-     [1,1,0,0,0,0,0,1]]
+     [1,0,0,0,0,0,0,1]
+     ]
 
 def demo(n, block_orientation, rotate,x):
     # create matrix device
@@ -45,15 +58,16 @@ def demo(n, block_orientation, rotate,x):
     device.contrast(16)
 
     time.sleep(1)
-    for i in range(30):
+    for i in range(5):
         with canvas(device) as draw:
             for pos in bin_to_position(vent1):
                 draw.point(pos,fill = "white")
             time.sleep(0.1)
 
-    for i in range(30):
+    for i in range(5):
         with canvas(device) as draw:
-            draw.point((7,7),fill = "white")
+            for pos in bin_to_position(vent2):
+                draw.point(pos,fill = "white")
             time.sleep(0.1)
 
 def bin_to_position(bin_matrix):
@@ -66,7 +80,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--cascaded', '-n', type=int, default=1, help='Number of cascaded MAX7219 LED matrices')
     parser.add_argument('--block-orientation', type=int, default=90, choices=[0, 90, -90], help='Corrects block orientation when wired vertically')
-    parser.add_argument('--rotate', type=int, default=0, choices=[0, 1, 2, 3], help='Rotate display 0=0°, 1=90°, 2=180°, 3=270°')
+    parser.add_argument('--rotate', type=int, default=2, choices=[0, 1, 2, 3], help='Rotate display 0=0°, 1=90°, 2=180°, 3=270°')
     parser.add_argument('--symbol', type=int, default=3, help='Symbol to print between 0 and 255')
 
     args = parser.parse_args()
