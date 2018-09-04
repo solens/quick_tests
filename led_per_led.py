@@ -61,6 +61,30 @@ vent3 = [
      [0,0,0,0,0,1,1,1]
      ]
 
+vent4 = [
+     [0,0,0,1,1,1,0,0],
+     [0,0,0,0,1,1,0,0],
+     [1,0,0,0,1,0,0,0],
+     [1,1,0,0,1,0,0,0],
+     [1,1,1,1,1,0,0,0],
+     [0,0,0,0,1,0,0,0],
+     [0,0,0,0,1,1,0,0],
+     [0,0,0,0,1,1,1,0]
+     ]
+
+vent5 = [
+     [0,0,0,0,0,1,1,1],
+     [1,0,0,0,0,1,1,0],
+     [1,1,0,0,1,1,0,0],
+     [1,1,1,0,1,0,0,0],
+     [0,0,1,1,1,0,0,0],
+     [0,0,0,0,1,0,0,0],
+     [0,0,0,1,1,0,0,0],
+     [0,0,0,1,1,1,0,0]
+     ]
+
+vent = [vent1,vent2,vent3,vent4,vent5]
+
 def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
@@ -69,23 +93,12 @@ def demo(n, block_orientation, rotate,x):
     device.contrast(16)
 
     time.sleep(1)
-    for i in range(5):
-        with canvas(device) as draw:
-            for pos in bin_to_position(vent1):
-                draw.point(pos,fill = "white")
-            time.sleep(0.1)
-
-    for i in range(5):
-        with canvas(device) as draw:
-            for pos in bin_to_position(vent2):
-                draw.point(pos,fill = "white")
-            time.sleep(0.1)
-
-    for i in range(5):
-        with canvas(device) as draw:
-            for pos in bin_to_position(vent3):
-                draw.point(pos,fill = "white")
-            time.sleep(0.1)
+    for screen_drawing in vent:
+        for i in range(5):
+            with canvas(device) as draw:
+                for pos in bin_to_position(screen_drawing):
+                    draw.point(pos,fill = "white")
+                time.sleep(0.1)
 
 def bin_to_position(bin_matrix):
     pos_matrix = np.argwhere(bin_matrix)
