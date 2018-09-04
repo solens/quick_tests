@@ -50,6 +50,17 @@ vent2 = [
      [1,0,0,0,0,0,0,1]
      ]
 
+vent3 = [
+     [0,0,1,1,1,0,0,0],
+     [0,0,0,1,1,0,0,0],
+     [0,0,0,0,1,0,0,0],
+     [0,0,0,0,1,0,0,0],
+     [0,1,1,1,1,0,0,0],
+     [1,1,1,0,1,1,0,0],
+     [1,0,0,0,0,1,1,0],
+     [0,0,0,0,0,1,1,1]
+     ]
+
 def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
@@ -67,6 +78,12 @@ def demo(n, block_orientation, rotate,x):
     for i in range(5):
         with canvas(device) as draw:
             for pos in bin_to_position(vent2):
+                draw.point(pos,fill = "white")
+            time.sleep(0.1)
+
+    for i in range(5):
+        with canvas(device) as draw:
+            for pos in bin_to_position(vent3):
                 draw.point(pos,fill = "white")
             time.sleep(0.1)
 
