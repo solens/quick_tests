@@ -9,6 +9,7 @@ import time
 import argparse
 import os
 import sys
+import numpy as np
 
 from luma.led_matrix.device import max7219
 from luma.core.interface.serial import spi, noop
@@ -17,21 +18,31 @@ from luma.core.virtual import viewport
 from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 
+x = [[1,0,0,0,0,0,0,1],
+     [0,1,0,0,0,0,1,0],
+     [0,0,1,0,0,1,0,0],
+     [0,0,0,1,1,0,0,0],
+     [0,0,1,0,0,1,0,0],
+     [0,1,0,0,0,0,1,0],
+     [1,0,0,0,0,0,0,1]]
+
 
 def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=n or 1, block_orientation=block_orientation, rotate=rotate or 0)
-    print("Created device")
 
     device.contrast(16)
 
     time.sleep(1)
     for i in range(30):
         with canvas(device) as draw:
-            draw.point((1,1),fill = "white")
+            for pos in bin_to_position(x):
+                draw.point(pos,fill = "white")
             time.sleep(0.1)
 
+def bin_to_position(bin_matrix):
+    return np.argwhere(bin_matrix)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='matrix_demo arguments',
