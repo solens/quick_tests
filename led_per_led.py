@@ -31,6 +31,7 @@ def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=n or 1, block_orientation=block_orientation, rotate=rotate or 0)
+    print(x)
 
     device.contrast(16)
 
@@ -43,7 +44,9 @@ def demo(n, block_orientation, rotate,x):
             time.sleep(0.1)
 
 def bin_to_position(bin_matrix):
-    return np.argwhere(bin_matrix)
+    pos_matrix = np.argwhere(bin_matrix)
+    print(pos_matrix)
+    return pos_matrix
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='matrix_demo arguments',
