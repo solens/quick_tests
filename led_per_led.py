@@ -185,18 +185,10 @@ def demo(n, block_orientation, rotate,x):
                     draw.point(pos,fill = "white")
                 time.sleep(0.1)
 
-    time.sleep(1)
-    for screen_drawing in all_screen:
-        for i in range(5):
-            with canvas(device) as draw:
-                for pos in bin_to_position(screen_drawing):
-                    draw.point(pos,fill = "white")
-                time.sleep(0.1)
-
     show_message(device, "ALL", fill="white", font=proportional(CP437_FONT))
 
 def bin_to_position(bin_matrix):
-    pos_matrix = np.argwhere(bin_matrix)
+    pos_matrix = np.argwhere(zip(*bin_matrix[::-1]))
     return pos_matrix
 
 if __name__ == "__main__":
@@ -205,7 +197,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--cascaded', '-n', type=int, default=1, help='Number of cascaded MAX7219 LED matrices')
     parser.add_argument('--block-orientation', type=int, default=90, choices=[0, 90, -90], help='Corrects block orientation when wired vertically')
-    parser.add_argument('--rotate', type=int, default=2, choices=[0, 1, 2, 3], help='Rotate display 0=0°, 1=90°, 2=180°, 3=270°')
+    parser.add_argument('--rotate', type=int, default=0, choices=[0, 1, 2, 3], help='Rotate display 0=0°, 1=90°, 2=180°, 3=270°')
     parser.add_argument('--symbol', type=int, default=3, help='Symbol to print between 0 and 255')
 
     args = parser.parse_args()
