@@ -22,6 +22,7 @@ x_drawing = [[1,0,0,0,0,0,0,1],
      [0,1,0,0,0,0,1,0],
      [0,0,1,0,0,1,0,0],
      [0,0,0,1,1,0,0,0],
+     [0,0,0,1,1,0,0,0],
      [0,0,1,0,0,1,0,0],
      [0,1,0,0,0,0,1,0],
      [1,0,0,0,0,0,0,1]]
@@ -39,7 +40,6 @@ def demo(n, block_orientation, rotate,x):
     for i in range(30):
         with canvas(device) as draw:
             for pos in bin_to_position(x_drawing):
-                #print(pos)
                 draw.point(pos,fill = "white")
             time.sleep(0.1)
 
@@ -50,7 +50,6 @@ def demo(n, block_orientation, rotate,x):
 
 def bin_to_position(bin_matrix):
     pos_matrix = np.argwhere(bin_matrix)
-    print(pos_matrix)
     return pos_matrix
 
 if __name__ == "__main__":
