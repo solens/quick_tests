@@ -163,6 +163,8 @@ def demo(n, block_orientation, rotate,x):
                     draw.point(pos,fill = "white")
                 time.sleep(0.1)
 
+    show_message(device, "ALL", fill="white", font=proportional(CP437_FONT))
+
 def bin_to_position(bin_matrix):
     pos_matrix = np.argwhere(bin_matrix)
     return pos_matrix
