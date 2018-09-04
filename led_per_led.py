@@ -28,18 +28,26 @@ x_drawing = [[1,0,0,0,0,0,0,1],
      [1,0,0,0,0,0,0,1]]
 
 
+vent1 = [[1,1,1,0,0,0,0,0],
+     [0,1,1,1,0,0,0,0],
+     [0,0,1,1,0,0,0,0],
+     [0,0,0,1,0,0,0,0],
+     [0,0,0,1,1,1,0,0],
+     [0,1,1,0,0,1,1,1],
+     [1,1,0,0,0,0,1,1],
+     [1,1,0,0,0,0,0,1]]
+
 def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=n or 1, block_orientation=block_orientation, rotate=rotate or 0)
-    print(x_drawing)
 
     device.contrast(16)
 
     time.sleep(1)
     for i in range(30):
         with canvas(device) as draw:
-            for pos in bin_to_position(x_drawing):
+            for pos in bin_to_position(vent1):
                 draw.point(pos,fill = "white")
             time.sleep(0.1)
 
