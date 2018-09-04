@@ -149,10 +149,20 @@ l = [
      [0,1,1,1,1,1,1,0]
      ]
 
-vent = [vent1,vent2,vent3,vent4,vent5]
-light = [light1,light2,light1,light2]
-door = [door1,door2,door1,door2]
-all_screen = [a,l,l]
+dark = [
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0]
+        ]
+vent = [vent1,vent2,vent3,vent4,vent5,dark]
+light = [light1,light2,light1,light2,dark]
+door = [door1,door2,door1,door2,dark]
+all_screen = [a,dark,l,dark,l,dark]
 
 def demo(n, block_orientation, rotate,x):
     # create matrix device
