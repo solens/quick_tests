@@ -18,7 +18,7 @@ from luma.core.virtual import viewport
 from luma.core.legacy import text, show_message
 from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_FONT, LCD_FONT
 
-x = [[1,0,0,0,0,0,0,1],
+x_drawing = [[1,0,0,0,0,0,0,1],
      [0,1,0,0,0,0,1,0],
      [0,0,1,0,0,1,0,0],
      [0,0,0,1,1,0,0,0],
@@ -31,7 +31,7 @@ def demo(n, block_orientation, rotate,x):
     # create matrix device
     serial = spi(port=0, device=0, gpio=noop())
     device = max7219(serial, cascaded=n or 1, block_orientation=block_orientation, rotate=rotate or 0)
-    print(x)
+    print(x_drawing)
 
     device.contrast(16)
 
@@ -39,8 +39,8 @@ def demo(n, block_orientation, rotate,x):
     for i in range(30):
         with canvas(device) as draw:
             for pos in bin_to_position(x):
-                print(pos)
-                #draw.point((pos[0],pos[1]),fill = "white")
+                #print(pos)
+                draw.point(pos,fill = "white")
             time.sleep(0.1)
 
 def bin_to_position(bin_matrix):
