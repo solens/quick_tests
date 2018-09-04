@@ -38,7 +38,7 @@ def demo(n, block_orientation, rotate,x):
     for i in range(30):
         with canvas(device) as draw:
             for pos in bin_to_position(x):
-                draw.point(pos,fill = "white")
+                draw.point((pos[0],pos[1]),fill = "white")
             time.sleep(0.1)
 
 def bin_to_position(bin_matrix):
