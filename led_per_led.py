@@ -29,7 +29,7 @@ def demo(n, block_orientation, rotate,x):
     time.sleep(1)
     for i in range(30):
         with canvas(device) as draw:
-            draw.rectangle((1,1,1,1),outline = "white",fill = "black")
+            draw.rectangle((0,0,1,1),outline = "white",fill = "black")
             time.sleep(0.1)
 
 
