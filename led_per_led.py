@@ -43,7 +43,7 @@ def demo(n, block_orientation, rotate,x):
                 draw.point(pos,fill = "white")
             time.sleep(0.1)
 
-        for i in range(30):
+    for i in range(30):
         with canvas(device) as draw:
             draw.point((7,7),fill = "white")
             time.sleep(0.1)
