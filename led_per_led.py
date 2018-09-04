@@ -188,7 +188,7 @@ def demo(n, block_orientation, rotate,x):
     show_message(device, "ALL", fill="white", font=proportional(CP437_FONT))
 
 def bin_to_position(bin_matrix):
-    pos_matrix = np.argwhere(zip(*bin_matrix[::-1]))
+    pos_matrix = np.argwhere(zip(*bin_matrix))
     return pos_matrix
 
 if __name__ == "__main__":
