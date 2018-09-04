@@ -127,10 +127,32 @@ door2 = [
      [0,1,0,0,0,0,1,0]
      ]
 
+a = [
+     [0,0,1,1,1,1,0,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,1,1,1,1,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,0,0,1,1,0]
+     ]
+
+l = [
+     [1,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,1,1,0,0,0,0,0],
+     [0,1,1,0,0,1,1,0],
+     [0,1,1,1,1,1,1,0]
+     ]
+
 vent = [vent1,vent2,vent3,vent4,vent5]
 light = [light1,light2,light1,light2]
 door = [door1,door2,door1,door2]
-
+all_screen = [a,l,l]
 
 def demo(n, block_orientation, rotate,x):
     # create matrix device
@@ -157,6 +179,14 @@ def demo(n, block_orientation, rotate,x):
 
     time.sleep(1)
     for screen_drawing in door:
+        for i in range(5):
+            with canvas(device) as draw:
+                for pos in bin_to_position(screen_drawing):
+                    draw.point(pos,fill = "white")
+                time.sleep(0.1)
+
+    time.sleep(1)
+    for screen_drawing in all_screen:
         for i in range(5):
             with canvas(device) as draw:
                 for pos in bin_to_position(screen_drawing):
