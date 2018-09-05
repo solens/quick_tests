@@ -165,7 +165,7 @@ door = [door1,door2,door1,door2,dark]
 all_screen = [a,dark,l,dark,l,dark]
 
 def draw_shape(shape_name):
-    serial = spi(port=0, device=0, gpio=noop())
+    serial = spi(port=0, device=0, gpio=noop()) 
     device = max7219(serial, cascaded=1 or 1, block_orientation=90, rotate=0)
 
     device.contrast(16)
@@ -176,7 +176,7 @@ def draw_shape(shape_name):
         "light": light
     }
 
-    if shape_name == all:
+    if shape_name == "all":
         show_message(device, "ALL", fill="white", font=proportional(CP437_FONT),scroll_delay = 0.1)
     else:
         for screen_drawing in shapes[shape_name]:
